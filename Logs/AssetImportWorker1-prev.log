@@ -1,0 +1,110 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+/Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+55805
+Successfully changed project path to: /Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator
+/Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 130.05 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.4f1 (0abb6314276a)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator/Assets
+GfxDevice: creating device client; threaded=0
+2021-05-20 20:55:13.942 Unity[4860:7638008] Color LCD preferred device: AMD Radeon Pro 560X (high power)
+2021-05-20 20:55:13.942 Unity[4860:7638008] Metal devices available: 2
+2021-05-20 20:55:13.942 Unity[4860:7638008] 0: AMD Radeon Pro 560X (high power)
+2021-05-20 20:55:13.942 Unity[4860:7638008] 1: Intel(R) UHD Graphics 630 (low power)
+2021-05-20 20:55:13.942 Unity[4860:7638008] Using device AMD Radeon Pro 560X (high power)
+Initializing Metal device caps: AMD Radeon Pro 560X
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56860
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.054360 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 24.92 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.398 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.171042 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.997 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.39 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1317 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 117.9 MB.
+System memory in use after: 118.0 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 1766.
+Total: 2.990343 ms (FindLiveObjects: 0.237502 ms CreateObjectMapping: 0.066787 ms MarkObjects: 2.532514 ms  DeleteObjects: 0.152076 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/GroundMaterial.mat
+  artifactKey: Guid(0ae0fa16dd22a48ab851e61f51de3338) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GroundMaterial.mat using Guid(0ae0fa16dd22a48ab851e61f51de3338) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd1aeb407a5bec2d230d1ac7f28f35dc') in 0.574738 seconds
+  Import took 0.577204 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/Orange.mat
+  artifactKey: Guid(615923b7e8c7d465682d0fe6dee55c0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Orange.mat using Guid(615923b7e8c7d465682d0fe6dee55c0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ce6a869b67cb06607de8ef9feb9d938') in 0.018305 seconds
+  Import took 0.020415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/Green.mat
+  artifactKey: Guid(1222c3488e5c94b9b90fb198ab9c926f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Green.mat using Guid(1222c3488e5c94b9b90fb198ab9c926f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a7745ef27772bd76bcf0d5a3a6927a5') in 0.012897 seconds
+  Import took 0.015033 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.069584 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.981 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.41 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1303 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 125.9 MB.
+System memory in use after: 126.0 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1810.
+Total: 4.010864 ms (FindLiveObjects: 0.697263 ms CreateObjectMapping: 0.052614 ms MarkObjects: 3.129524 ms  DeleteObjects: 0.130575 ms)
+

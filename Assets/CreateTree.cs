@@ -4,31 +4,39 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.UI;
-
 public class CreateTree : MonoBehaviour
 {
     public GameObject prefab;
 
-    public Vector3 pos = new Vector3(-1.82F, 3.2F, -0.202F);
+    public Vector3 pos = new Vector3(0F, 10F, 0F);
     public int _depth;
+
+    public Material OrangeMat;
+    public Material RedMat;
+    public Material GreenMat;
 
     static public TreeNode<int> StartNode = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartNode = new TreeNode<int>(1);
-        var depth1 = StartNode.AddChildren(new int[] { 2, 3 });
-        var depth2 = StartNode[0].AddChildren(new int[] { 4, 5 });
-        var depth3 = StartNode[1].AddChildren(new int[] { 6, 7, 8 });
 
-        _depth = 2;
+        StartNode = new TreeNode<int>(1);
+        var depth1 = StartNode.AddChildren(new int[] { 2, 6 });
+        var depth2 = StartNode[0].AddChildren(new int[] { 3, 4, 5 });
+        var depth3 = StartNode[1].AddChildren(new int[] { 7, 11 });
+        var depth4 = StartNode[1][0].AddChildren(new int[] { 8, 9 });
+        var depth5 = StartNode[1][0][0].AddChildren(new int[] { 10 });
+
+        _depth = 4;
         Visualize2DLayout(StartNode);
+
+        StartCoroutine(VisitInPostOrder());
     }
 
     public void Visualize2DLayout<T>(TreeNode<T> startNode) {
         GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
-        createCube(obj, 1, startNode.Value.ToString());
+        drawValue(obj, 1, startNode.Value.ToString());
         obj.name = "Node" + 1.ToString();
         startNode.Name = "Node" + 1.ToString();
         startNode.Node = new Node(prefab, obj);
@@ -45,9 +53,9 @@ public class CreateTree : MonoBehaviour
         {
             if (amountOfChildren % 2 == 0) {
                 var calc = (float)currentChild - 0.5F*(float)amountOfChildren + 0.5F;
-                var temp = CurrentNode.Node.Obj.transform.position + new Vector3((float)calc/(float)Math.Pow(CalculateDepthOfNode(node), 2), -1F , 0);
+                var temp = CurrentNode.Node.Obj.transform.position + new Vector3((float)calc*(float)(_depth - CalculateDepthOfNode(node)), -1F , 0);
                 GameObject obj = Instantiate(prefab, temp, Quaternion.identity);
-                createCube(obj, 1, node.Value.ToString());
+                drawValue(obj, 1, node.Value.ToString());
                 obj.name = "Node" + amountOfChildren.ToString();
                 node.Name = "Node" + amountOfChildren.ToString();
                 Debug.Log("Drawn node " + node.Value + " at " + obj.transform.position + " with depth " + CalculateDepthOfNode(node));
@@ -61,14 +69,14 @@ public class CreateTree : MonoBehaviour
                 lineRenderer.positionCount = 2;
                 lineRenderer.useWorldSpace = true;    
                                 
-                lineRenderer.SetPosition(0, node.Parent.Node.Obj.transform.position); //x,y and z position of the starting point of the line
-                lineRenderer.SetPosition(1, temp); //x,y and z position of the end point of the line
+                lineRenderer.SetPosition(0, node.Parent.Node.Obj.transform.position);
+                lineRenderer.SetPosition(1, temp);
                 
             } else {
                 var calc2 = ((float)currentChild - (float)amountOfChildren) + (float)Math.Ceiling((float)amountOfChildren/2F);
-                var temp2 = CurrentNode.Node.Obj.transform.position+ new Vector3((float)calc2/(float)Math.Pow(CalculateDepthOfNode(node), 2), -1F , 0);
+                var temp2 = CurrentNode.Node.Obj.transform.position+ new Vector3((float)calc2, -1F , 0);
                 GameObject obj = Instantiate(prefab, temp2, Quaternion.identity);
-                createCube(obj, 1, node.Value.ToString());
+                drawValue(obj, 1, node.Value.ToString());
                 obj.name = "Node" + amountOfChildren.ToString();
                 node.Name = "Node" + amountOfChildren.ToString();
                 Debug.Log("Drawn node " + node.Value + " at " + obj.transform.position + " with depth " + CalculateDepthOfNode(node));
@@ -94,7 +102,9 @@ public class CreateTree : MonoBehaviour
             waiting.Add(node);
         }
         waiting.Remove(CurrentNode);
-        VisualizeChildren2D(waiting[0], waiting);
+        if (waiting.Count > 0) {
+            VisualizeChildren2D(waiting[0], waiting);
+        }
     }
 
     public int CalculateDepthOfNode<T>(TreeNode<T> Node) 
@@ -138,34 +148,149 @@ public class CreateTree : MonoBehaviour
         return childObj;
     }
 
-    public static GameObject createCube (GameObject mainObj, int size, string value) {
+    public void drawValue (GameObject mainObj, int size, string value) {
 
-    GameObject side1 = addSide (size, value.ToString());
-    side1.transform.SetParent (mainObj.transform);
-    side1.transform.localScale = new Vector3(1F, 1F, 1F);
-    side1.transform.localPosition = new Vector3(-0.412F, 0.71F, -0.51F);
-    side1.transform.rotation = Quaternion.Euler(0,0,0);
+        GameObject side1 = addSide (size, value.ToString());
+        side1.transform.SetParent (mainObj.transform);
+        side1.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+        side1.transform.localPosition = new Vector3(-0.35F, 0.35F, -0.5F);
+        side1.transform.rotation = Quaternion.Euler(0,0,0);
 
-    GameObject side2 = addSide (size, value.ToString());
-    side2.transform.SetParent (mainObj.transform);
-    side2.transform.localScale = new Vector3(1F, 1F, 1F);
-    side2.transform.localPosition = new Vector3(0.412F, 0.71F, 0.51F);
-    side2.transform.rotation = Quaternion.Euler(0,180,0);
+        GameObject side2 = addSide (size, value.ToString());
+        side2.transform.SetParent (mainObj.transform);
+        side2.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+        side2.transform.localPosition = new Vector3(0.35F, 0.35F, 0.5F);
+        side2.transform.rotation = Quaternion.Euler(0,180,0);
 
-    GameObject side5 = addSide (size, value.ToString());
-    side5.transform.SetParent (mainObj.transform);
-    side5.transform.localScale = new Vector3(1F, 1F, 1F);
-    side5.transform.localPosition = new Vector3(-0.59F, 0.71F, 0.48F);
-    side5.transform.rotation = Quaternion.Euler(0,90,0);
+        GameObject side5 = addSide (size, value.ToString());
+        side5.transform.SetParent (mainObj.transform);
+        side5.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+        side5.transform.localPosition = new Vector3(-0.5F, 0.35F, 0.35F);
+        side5.transform.rotation = Quaternion.Euler(0,90,0);
 
-    GameObject side6 = addSide (size, value.ToString());
-    side6.transform.SetParent (mainObj.transform);
-    side6.transform.localScale = new Vector3(1F, 1F, 1F);
-    side6.transform.localPosition = new Vector3(0.59F, 0.71F, -0.48F);
-    side6.transform.rotation = Quaternion.Euler(0,270,0);
-
-    return mainObj;
+        GameObject side6 = addSide (size, value.ToString());
+        side6.transform.SetParent (mainObj.transform);
+        side6.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+        side6.transform.localPosition = new Vector3(0.5F, 0.35F, -0.35F);
+        side6.transform.rotation = Quaternion.Euler(0,270,0);
     }
+
+    IEnumerator VisitInPreOrder() 
+    {
+        yield return new WaitForSeconds(3);
+
+        GameObject info = GameObject.Find("TextPanel");
+        info.GetComponent<UnityEngine.UI.Text>().text = "In preorde doorlopen: \n";
+
+        yield return StartCoroutine(VisitInPreOrderRecursief(StartNode));
+    }
+    
+    IEnumerator VisitInPreOrderRecursief<T>(TreeNode<T> CurrentNode) 
+    {
+        yield return new WaitForSeconds(3);
+
+        CurrentNode.Node.Obj.GetComponent<Renderer>().material = OrangeMat;
+
+        yield return new WaitForSeconds(3);
+
+        print(CurrentNode.Value);
+        CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
+        GameObject info = GameObject.Find("TextPanel");
+        info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
+
+        foreach (TreeNode<T> node in CurrentNode.Children) 
+        {
+            yield return StartCoroutine(VisitInPreOrderRecursief(node));
+        }
+    }
+
+    IEnumerator VisitInInOrder() 
+    {
+        yield return new WaitForSeconds(3);
+
+        GameObject info = GameObject.Find("TextPanel");
+        info.GetComponent<UnityEngine.UI.Text>().text = "In inorder doorlopen: \n";
+
+        yield return StartCoroutine(VisitInInOrderRecursief(StartNode));
+    }
+
+    IEnumerator VisitInInOrderRecursief<T>(TreeNode<T> CurrentNode)
+    {
+        yield return new WaitForSeconds(3);
+
+        CurrentNode.Node.Obj.GetComponent<Renderer>().material = OrangeMat;
+
+        yield return new WaitForSeconds(3);
+
+        if (CurrentNode.Children.Count == 0) 
+        {
+            print(CurrentNode.Value);
+            CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
+            GameObject info = GameObject.Find("TextPanel");
+            info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
+        }
+
+        int AmountOfChildren = CurrentNode.Children.Count;
+        int Index = 0;
+        foreach (TreeNode<T> node in CurrentNode.Children) 
+        {
+            yield return StartCoroutine(VisitInInOrderRecursief(node));
+            Index++;
+            if (Index == AmountOfChildren) 
+            {
+                yield return new WaitForSeconds(3);
+
+                print(CurrentNode.Value);
+                CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
+                GameObject info = GameObject.Find("TextPanel");
+                info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
+            }
+        }
+    } 
+
+    IEnumerator VisitInPostOrder() 
+    {
+        yield return new WaitForSeconds(3);
+
+        GameObject info = GameObject.Find("TextPanel");
+        info.GetComponent<UnityEngine.UI.Text>().text = "In postorder doorlopen: \n";
+
+        yield return StartCoroutine(VisitInPostOrderRecursief(StartNode));
+    }
+
+    IEnumerator VisitInPostOrderRecursief<T>(TreeNode<T> CurrentNode)
+    {
+        yield return new WaitForSeconds(3);
+
+        CurrentNode.Node.Obj.GetComponent<Renderer>().material = OrangeMat;
+
+        yield return new WaitForSeconds(3);
+
+        if (CurrentNode.Children.Count == 0) 
+        {
+            print(CurrentNode.Value);
+            CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
+            GameObject info = GameObject.Find("TextPanel");
+            info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
+        }
+
+        Boolean notPrinted = true;
+        foreach (TreeNode<T> node in CurrentNode.Children) 
+        {
+            yield return StartCoroutine(VisitInPostOrderRecursief(node));
+
+            yield return new WaitForSeconds(3);
+
+            if (notPrinted) 
+            {
+                print(CurrentNode.Value);
+                CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
+                GameObject info = GameObject.Find("TextPanel");
+                info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
+                notPrinted = false;
+            }
+        }
+    } 
 
     void OnMouseDown()
      {

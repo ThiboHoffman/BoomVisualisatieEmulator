@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637566157400000000
-    m_Hash: 700599182
+      ticks: 637566167020000000
+    m_Hash: 3117904445
   m_LockFileStatus:
     m_FilePath: /Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637566157400000000
-    m_Hash: 2611619011
+      ticks: 637566167020000000
+    m_Hash: 1553645496
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -49,19 +49,19 @@ m_PackageAssets:
         version: 0.9.4-preview
       resolvedDependencies:
       - name: com.unity.xr.management
-        version: 3.2.13
-      - name: com.unity.xr.legacyinputhelpers
-        version: 2.1.7
-      - name: com.unity.modules.vr
+        version: 4.0.1
+      - name: com.unity.modules.subsystems
         version: 1.0.0
       - name: com.unity.modules.jsonserialize
+        version: 1.0.0
+      - name: com.unity.modules.vr
         version: 1.0.0
       - name: com.unity.modules.physics
         version: 1.0.0
       - name: com.unity.modules.xr
         version: 1.0.0
-      - name: com.unity.modules.subsystems
-        version: 1.0.0
+      - name: com.unity.xr.legacyinputhelpers
+        version: 2.1.7
       - name: com.unity.subsystemregistration
         version: 1.0.6
       - name: com.unity.xr.interaction.toolkit
@@ -780,6 +780,7 @@ m_PackageAssets:
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
+        - 1.6.0-pre.5
         compatible:
         - 1.4.7
         - 1.4.8
@@ -798,6 +799,7 @@ m_PackageAssets:
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
+        - 1.6.0-pre.5
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
@@ -905,6 +907,99 @@ m_PackageAssets:
         type: 
         url: 
         revision: 
+        path: 
+    - packageId: com.unity.xr.mock-hmd@1.3.0-preview.1
+      testable: 0
+      isDirectDependency: 1
+      version: 1.3.0-preview.1
+      source: 1
+      resolvedPath: /Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator/Library/PackageCache/com.unity.xr.mock-hmd@1.3.0-preview.1
+      assetPath: Packages/com.unity.xr.mock-hmd
+      name: com.unity.xr.mock-hmd
+      displayName: MockHMD XR Plugin
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: Provides rendering and input support for XR MockHMD.
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 1.0.0-preview.1
+        - 1.0.0-preview.2
+        - 1.0.1-preview.3
+        - 1.0.1-preview.4
+        - 1.0.1-preview.5
+        - 1.0.1-preview.6
+        - 1.0.1-preview.7
+        - 1.1.0-preview.1
+        - 1.1.1-preview.1
+        - 1.1.2-preview.1
+        - 1.1.3-preview.1
+        - 1.2.0-preview.1
+        - 1.3.0-preview.1
+        compatible:
+        - 1.0.0-preview.1
+        - 1.0.0-preview.2
+        - 1.0.1-preview.3
+        - 1.0.1-preview.4
+        - 1.0.1-preview.5
+        - 1.0.1-preview.6
+        - 1.0.1-preview.7
+        - 1.1.0-preview.1
+        - 1.1.1-preview.1
+        - 1.1.2-preview.1
+        - 1.1.3-preview.1
+        - 1.2.0-preview.1
+        - 1.3.0-preview.1
+        verified: 
+      dependencies:
+      - name: com.unity.xr.management
+        version: 4.0.1
+      resolvedDependencies:
+      - name: com.unity.xr.management
+        version: 4.0.1
+      - name: com.unity.modules.subsystems
+        version: 1.0.0
+      - name: com.unity.modules.jsonserialize
+        version: 1.0.0
+      - name: com.unity.modules.vr
+        version: 1.0.0
+      - name: com.unity.modules.physics
+        version: 1.0.0
+      - name: com.unity.modules.xr
+        version: 1.0.0
+      - name: com.unity.xr.legacyinputhelpers
+        version: 2.1.7
+      - name: com.unity.subsystemregistration
+        version: 1.0.6
+      keywords:
+      - mock-hmd
+      - xr
+      - reality
+      - xreditorsubsystem
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637488609920000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/xr.sdk.mock-hmd.git
+        revision: dafe736729d60f1a4696913c59158fe8fa6f76ae
         path: 
     - packageId: com.unity.modules.ai@1.0.0
       testable: 0
@@ -2648,73 +2743,12 @@ m_PackageAssets:
         url: 
         revision: 
         path: 
-    - packageId: com.unity.ext.nunit@1.0.6
+    - packageId: com.unity.xr.management@4.0.1
       testable: 0
       isDirectDependency: 0
-      version: 1.0.6
+      version: 4.0.1
       source: 1
-      resolvedPath: /Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator/Library/PackageCache/com.unity.ext.nunit@1.0.6
-      assetPath: Packages/com.unity.ext.nunit
-      name: com.unity.ext.nunit
-      displayName: Custom NUnit
-      author:
-        name: 
-        email: 
-        url: 
-      category: Libraries
-      type: 
-      description: Custom version of the nunit package build to work with Unity.
-        Used by the Unity Test Framework.
-      status: 4
-      errors: []
-      versions:
-        all:
-        - 0.1.5-preview
-        - 0.1.6-preview
-        - 0.1.9-preview
-        - 1.0.0
-        - 1.0.5
-        - 1.0.6
-        compatible:
-        - 0.1.5-preview
-        - 0.1.6-preview
-        - 0.1.9-preview
-        - 1.0.0
-        - 1.0.5
-        - 1.0.6
-        verified: 1.0.6
-      dependencies: []
-      resolvedDependencies: []
-      keywords:
-      - nunit
-      - unittest
-      - test
-      registry:
-        id: main
-        name: 
-        url: https://packages.unity.com
-        scopes: []
-        isDefault: 1
-        capabilities: 7
-      hasRegistry: 1
-      hideInEditor: 1
-      entitlements:
-        isAllowed: 1
-      isAssetStorePackage: 0
-      datePublishedTicks: 637429759280000000
-      documentationUrl: 
-      hasRepository: 1
-      repository:
-        type: git
-        url: https://github.cds.internal.unity3d.com/unity/com.unity.ext.nunit.git
-        revision: 29ea4d6504a5f58fb3a6934db839aa80ae6d9d88
-        path: 
-    - packageId: com.unity.xr.management@3.2.13
-      testable: 0
-      isDirectDependency: 0
-      version: 3.2.13
-      source: 1
-      resolvedPath: /Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator/Library/PackageCache/com.unity.xr.management@3.2.13
+      resolvedPath: /Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator/Library/PackageCache/com.unity.xr.management@4.0.1
       assetPath: Packages/com.unity.xr.management
       name: com.unity.xr.management
       displayName: XR Plugin Management
@@ -2724,8 +2758,8 @@ m_PackageAssets:
         url: 
       category: 
       type: 
-      description: Package to provide for simple management of XR plug-ins. Provides
-        help and management for loading, initialization, settings, and build support
+      description: Package that provides simple management of XR plug-ins. Manages
+        and offers help with loading, initialization, settings, and build support
         for XR plug-ins.
       status: 4
       errors: []
@@ -2786,23 +2820,29 @@ m_PackageAssets:
         - 4.0.5
         verified: 4.0.5
       dependencies:
+      - name: com.unity.modules.subsystems
+        version: 1.0.0
+      - name: com.unity.modules.vr
+        version: 1.0.0
+      - name: com.unity.modules.xr
+        version: 1.0.0
       - name: com.unity.xr.legacyinputhelpers
-        version: 2.1.2
+        version: 2.1.7
       - name: com.unity.subsystemregistration
         version: 1.0.6
       resolvedDependencies:
-      - name: com.unity.xr.legacyinputhelpers
-        version: 2.1.7
-      - name: com.unity.modules.vr
+      - name: com.unity.modules.subsystems
         version: 1.0.0
       - name: com.unity.modules.jsonserialize
+        version: 1.0.0
+      - name: com.unity.modules.vr
         version: 1.0.0
       - name: com.unity.modules.physics
         version: 1.0.0
       - name: com.unity.modules.xr
         version: 1.0.0
-      - name: com.unity.modules.subsystems
-        version: 1.0.0
+      - name: com.unity.xr.legacyinputhelpers
+        version: 2.1.7
       - name: com.unity.subsystemregistration
         version: 1.0.6
       keywords:
@@ -2825,13 +2865,74 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637293838190000000
+      datePublishedTicks: 637486666900000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/xr.sdk.management.git
-        revision: 3a3e4cb8f3b8a580f8bbf417ef9726adf94b1b97
+        revision: 7be7864c531ec05f0ba18503a2bb44684061e071
+        path: 
+    - packageId: com.unity.ext.nunit@1.0.6
+      testable: 0
+      isDirectDependency: 0
+      version: 1.0.6
+      source: 1
+      resolvedPath: /Users/thibohoffman/Documents/GitHub/BoomVisualisatieEmulator/Library/PackageCache/com.unity.ext.nunit@1.0.6
+      assetPath: Packages/com.unity.ext.nunit
+      name: com.unity.ext.nunit
+      displayName: Custom NUnit
+      author:
+        name: 
+        email: 
+        url: 
+      category: Libraries
+      type: 
+      description: Custom version of the nunit package build to work with Unity.
+        Used by the Unity Test Framework.
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.1.5-preview
+        - 0.1.6-preview
+        - 0.1.9-preview
+        - 1.0.0
+        - 1.0.5
+        - 1.0.6
+        compatible:
+        - 0.1.5-preview
+        - 0.1.6-preview
+        - 0.1.9-preview
+        - 1.0.0
+        - 1.0.5
+        - 1.0.6
+        verified: 1.0.6
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - nunit
+      - unittest
+      - test
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637429759280000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/com.unity.ext.nunit.git
+        revision: 29ea4d6504a5f58fb3a6934db839aa80ae6d9d88
         path: 
     - packageId: com.unity.xr.interaction.toolkit@0.9.4-preview
       testable: 0
