@@ -8,3 +8,4 @@ EditorBuildSettings:
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: cf91eff32b5d74e84b1e650d8daccd0e, type: 2}
     com.unity.xr.management.vr_sim_settings: {fileID: 11400000, guid: af3a5c4645604440993dfde46872ed93, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 6fea612723231466ebb420281c4d9cc3, type: 2}

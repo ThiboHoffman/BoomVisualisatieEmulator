@@ -183,50 +183,6 @@ public class CreateTreeConeTree : MonoBehaviour
         }
     }
 
-    IEnumerator VisitInInOrder() 
-    {
-        yield return new WaitForSeconds(3);
-
-        GameObject info = GameObject.Find("TextPanel");
-        info.GetComponent<UnityEngine.UI.Text>().text = "In inorder doorlopen: \n";
-
-        yield return StartCoroutine(VisitInInOrderRecursief(StartNode));
-    }
-
-    IEnumerator VisitInInOrderRecursief<T>(TreeNode<T> CurrentNode)
-    {
-        yield return new WaitForSeconds(3);
-
-        CurrentNode.Node.Obj.GetComponent<Renderer>().material = OrangeMat;
-
-        yield return new WaitForSeconds(3);
-
-        if (CurrentNode.Children.Count == 0) 
-        {
-            print(CurrentNode.Value);
-            CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
-            GameObject info = GameObject.Find("TextPanel");
-            info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
-        }
-
-        int AmountOfChildren = CurrentNode.Children.Count;
-        int Index = 0;
-        foreach (TreeNode<T> node in CurrentNode.Children) 
-        {
-            yield return StartCoroutine(VisitInInOrderRecursief(node));
-            Index++;
-            if (Index == AmountOfChildren) 
-            {
-                yield return new WaitForSeconds(3);
-
-                print(CurrentNode.Value);
-                CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
-                GameObject info = GameObject.Find("TextPanel");
-                info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
-            }
-        }
-    } 
-
     IEnumerator VisitInPostOrder() 
     {
         yield return new WaitForSeconds(3);
@@ -253,10 +209,54 @@ public class CreateTreeConeTree : MonoBehaviour
             info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
         }
 
-        Boolean notPrinted = true;
+        int AmountOfChildren = CurrentNode.Children.Count;
+        int Index = 0;
         foreach (TreeNode<T> node in CurrentNode.Children) 
         {
             yield return StartCoroutine(VisitInPostOrderRecursief(node));
+            Index++;
+            if (Index == AmountOfChildren) 
+            {
+                yield return new WaitForSeconds(3);
+
+                print(CurrentNode.Value);
+                CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
+                GameObject info = GameObject.Find("TextPanel");
+                info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
+            }
+        }
+    } 
+
+    IEnumerator VisitInInOrder() 
+    {
+        yield return new WaitForSeconds(3);
+
+        GameObject info = GameObject.Find("TextPanel");
+        info.GetComponent<UnityEngine.UI.Text>().text = "In inorder doorlopen: \n";
+
+        yield return StartCoroutine(VisitInInOrderRecursief(StartNode));
+    }
+
+    IEnumerator VisitInInOrderRecursief<T>(TreeNode<T> CurrentNode)
+    {
+        yield return new WaitForSeconds(3);
+
+        CurrentNode.Node.Obj.GetComponent<Renderer>().material = OrangeMat;
+
+        yield return new WaitForSeconds(3);
+
+        if (CurrentNode.Children.Count == 0) 
+        {
+            print(CurrentNode.Value);
+            CurrentNode.Node.Obj.GetComponent<Renderer>().material = GreenMat;
+            GameObject info = GameObject.Find("TextPanel");
+            info.GetComponent<UnityEngine.UI.Text>().text += CurrentNode.Value.ToString() + ", ";
+        }
+
+        Boolean notPrinted = true;
+        foreach (TreeNode<T> node in CurrentNode.Children) 
+        {
+            yield return StartCoroutine(VisitInInOrderRecursief(node));
 
             yield return new WaitForSeconds(3);
 
@@ -270,6 +270,7 @@ public class CreateTreeConeTree : MonoBehaviour
             }
         }
     } 
+
 
     void OnMouseDown()
      {
